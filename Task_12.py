@@ -5,15 +5,17 @@
 # Помогите Кате отгадать задуманные Петей числа.
 import math
 
-s = int(input('Первая подсказка Пети. Сумма задуманных чисел: '))
-p = int(input('Вторая подсказка Пети. Произведение задуманных чисел: '))
-
-discriminant = s*s - 4 * p
-if discriminant < 0: print('Задача не имеет решения.')
+s = int(input('Первая подсказка Пети. Сумма задуманных натуральных чисел: '))
+p = int(input('Вторая подсказка Пети. Произведение этих чисел: '))
+if s <= 0 or p <=0:
+    print('Некорректный ввод. Введите натуральные числа')
 else:
-    number_one = int((s + math.sqrt(discriminant)) / 2)
-    number_two = int(s - number_one)
-    if p == number_one * number_two:
-        print(f'Задуманные числа: {number_one} и {number_two}')
+    discriminant = s*s - 4 * p
+    if discriminant < 0: print('Задача не имеет решения.')
     else:
-        print('Задача не имеет решения.')
+        number_one = int((s + math.sqrt(discriminant)) / 2)
+        number_two = int(s - number_one)
+        if p == number_one * number_two:
+            print(f'Задуманные числа: {number_one} и {number_two}')
+        else:
+            print('Задача не имеет решения.')
